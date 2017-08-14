@@ -4,31 +4,31 @@ I want to give the team a bit of a knowledge transfer on how I use R.  Topics I 
 
 ## Why R?
 
-##Getting R help
+## Getting R help
 
   * ?
   * CRAN
   * Stack overflow
   * Hacky hour
 
-##Reading and writing data
+## Reading and writing data
 
   * from CSV/Excel
   * from Oracle DW (ROracle & sistools packages)
 
-##Data Wrangling
+## Data Wrangling
 
   * Base R
   * dplyr and the tidyverse
 
-##Plotting with ggplot2
+## Plotting with ggplot2
 
-##Rstudio tips
+## Rstudio tips
 
   * Projects
   * Snippets
 
-##Pre-workshop prep
+## Pre-workshop prep
 
 1. Download and install R and RStudio.
 2. Install the `tidyverse` and `keyringr` packages:
