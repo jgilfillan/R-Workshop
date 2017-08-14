@@ -2,33 +2,40 @@
 	
 I want to give the team a bit of a knowledge transfer on how I use R.  Topics I hope to cover:
 
-* Why R?
-* Getting R help
+## Why R?##
+
+##Getting R help##
   * ?
   * CRAN
   * Stack overflow
   * Hacky hour
-* Reading and writing data
-  *  from CSV/Excel
-  * from Oracle DW
-    * ROracle+ sistools packages
-* Data Wrangling
+
+##Reading and writing data##
+  * from CSV/Excel
+  * from Oracle DW (ROracle & sistools packages)
+
+##Data Wrangling##
   * Base R
   * dplyr and the tidyverse
-* Plotting with ggplot2
-* Rstudio tips
+
+##Plotting with ggplot2##
+
+##Rstudio tips##
   * Projects
   * Snippets
 
-We probably won't cover all of this in one session, so will book another one if needed.  If possible please come with a laptop installed with R and RStudio.
+##Pre-workshop prep##
 
-Also run the following commands in R prior to attending:
+1. Download and install R and RStudio.
+2. Install the `tidyverse` and `keyringr` packages:
 
+```r
 install.packages("tidyverse")
 install.packages("keyringr")
 install.packages("G:/qua/Planning and Statistics/Script Templates and Headers/001. R Packages/sistools_0.6.0.zip", repos = NULL)
+```
 
-Please print out and bring the following cheat sheets from https://www.rstudio.com/resources/cheatsheets/:
+3. Please print out and bring the following cheat sheets from https://www.rstudio.com/resources/cheatsheets/:
 
 * Data import
 * Data transformation
