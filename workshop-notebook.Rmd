@@ -1,0 +1,126 @@
+---
+title: "R Notebook"
+output:
+  html_notebook: default
+  html_document: default
+---
+
+1. Why R?
+R, like SQL, is a language for processing data.  Some tasks are much easier in SQL, other tasks are much easier in R.
+
+| Task                                 | R | SQL |
+|--------------------------------------|:-:|:---:|
+| Syntax (subjective)                  |   |  x  |
+| Reading CSVs                         | x |     |
+| ETL / procesing data with many joins |   |  x  |
+| Pivoting Data                        | x |     |
+| Statistical analysis                 | x |     |
+| Charting                             | x |     |
+| Fast                                 | x |  x  |
+| Very large datasets                  |   |  x  |
+
+An example of an operation that takes much effort in SQL is a [dynamic pivot](https://stackoverflow.com/a/26517282/3827849).
+
+```{r}
+# make a dataframe
+people <- c("Tom", "John", "Sarah", "Leah")
+days <- c("Monday", "Monday", "Tuesday", "Monday")
+calories <- c(2100, 1830, 1685, 1900)
+cals <- data.frame(people = people, days = days, calories = calories)
+head(cals)
+```
+
+
+```{r}
+# now lets pivot
+
+# load tidyverse
+library("tidyverse")
+
+# pivot - days as columns
+spread(cals, days, calories)
+```
+
+
+2. Getting R help
+
+If you know a function name and want to find out what parameters it takes, type `?function` into the console like this:
+
+```{r}
+?read.csv
+```
+
+If the function name is unknown, Google is your friend.  If all else fails, post of Stack Overflow.
+
+3. Installing and Loading Packages
+The default set of functionality that is available in a vanilla R installation is called Base R.  To extend R, you must install packages.
+
+```{r}
+# Install the tidyverse package
+install.packages("zoo")
+```
+
+
+4. Reading and writing data
+    * from CSV/Excel
+    
+```{r}
+# read in a csv
+# read_csv is in the tidyverse and dplyr packages
+starwars_import <- read_csv("starwars.csv")
+glimpse(starwars_import)
+
+# write a csv
+write_csv(starwars_import, "starwars_out.csv")
+```
+
+    
+    
+    * from Oracle DW (ROracle & sistools packages)
+
+```{r}
+#library(sistools)
+#
+#oracle_read_table("D_PROGRAM", schema = "DWMART")
+```
+
+
+5. Data Wrangling
+    * Base R
+
+Filter rows where name = 'Yoda'
+```{r}
+#        starwars$name == "Yoda"
+starwars[starwars$name == "Yoda",]
+```
+
+
+[dplyr and the tidyverse](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+    
+Filter rows where name = 'Yoda'
+```{r}
+filter(starwars, name == "Yoda")
+
+# or...
+
+starwars %>% filter(name == "Yoda")
+```
+
+6. Plotting with ggplot2
+
+**Histogram**
+```{r}
+ggplot(data = starwars, aes(x=height)) + geom_histogram()
+```
+
+**Scatter**
+```{r}
+#ggplot(data = starwars, aes(x = height, y = mass)) +
+ggplot(data = starwars, aes(x = height, y = mass, colour = gender)) +
+  geom_point(size = 3)
+```
+
+
+7. Rstudio tips
+    * Projects
+    * Snippets
